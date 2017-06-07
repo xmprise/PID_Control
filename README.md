@@ -3,6 +3,11 @@
 ## Reflection
 
 ### PID Componets
+
+Error is that input variable for the controller:
+
+cte = desired_state - measured_state
+
 P or "Proportional" indicates the current cte (Cross Track Error). The car is controlled in proportion to the distance of the car from the center of the lane, and when P error is large, it vibrates greatly and reacts quickly to the input.
 
 I or "Integral" is used to eliminate states that no longer match the target value when approaching the target value. An error that does not match the target value over time is referred to as 'Offset', and the error of the vehicle's controller not reaching the target value can be eliminated.
