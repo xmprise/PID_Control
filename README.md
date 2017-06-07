@@ -1,7 +1,29 @@
-# CarND-Controls-PID
-Self-Driving Car Engineer Nanodegree Program
-
+# PID Control
 ---
+
+## Reflection
+---
+### PID Componets
+P or "Proportional" indicates the current cte (Cross Track Error). The car is controlled in proportion to the distance of the car from the center of the lane, and when P error is large, it vibrates greatly and reacts quickly to the input.
+
+I or "Integral" is used to eliminate states that no longer match the target value when approaching the target value. An error that does not match the target value over time is referred to as 'Offset', and the error of the vehicle's controller not reaching the target value can be eliminated.
+
+D or "Differential" brakes on sudden changes in output, while a high coefficient helps reduce overshoot and helps keep the car in the center.
+
+### Parameter Tuning
+Tuned by the Ziegler-Nichols method. Ki and Kd were set to 0 and gradually increased Kp until the difference was oscillated. Next, Kd increases the value to quickly reach the reference, and Ki is set to a value as small as possible since there is no steering bias.
+
+Final Parameter
+```c++
+steer_pid.Init(.1, .0001, 3.);
+```
+
+**Note**
+▻ Use KP to decrease the rise time.
+▻ Use KD to reduce the overshoot and settling time.
+▻ Use KI to eliminate the steady-state error.
+
+Jinghua Zhong (Spring 2006). "PID Controller Tuning: A Short Tutorial" (PDF). Retrieved 2011-04-04.
 
 ## Dependencies
 
@@ -45,46 +67,3 @@ using the following settings:
 ## Code Style
 
 Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
-
-## Project Instructions and Rubric
-
-Note: regardless of the changes you make, your project must be buildable using
-cmake and make!
-
-More information is only accessible by people who are already enrolled in Term 2
-of CarND. If you are enrolled, see [the project page](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/f1820894-8322-4bb3-81aa-b26b3c6dcbaf/lessons/e8235395-22dd-4b87-88e0-d108c5e5bbf4/concepts/6a4d8d42-6a04-4aa6-b284-1697c0fd6562)
-for instructions and the project rubric.
-
-## Hints!
-
-* You don't have to follow this directory structure, but if you do, your work
-  will span all of the .cpp files here. Keep an eye out for TODOs.
-
-## Call for IDE Profiles Pull Requests
-
-Help your fellow students!
-
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to we ensure
-that students don't feel pressured to use one IDE or another.
-
-However! I'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Frankly, I've never been involved in a project with multiple IDE profiles
-before. I believe the best way to handle this would be to keep them out of the
-repo root to avoid clutter. My expectation is that most profiles will include
-instructions to copy files to a new location to get picked up by the IDE, but
-that's just a guess.
-
-One last note here: regardless of the IDE used, every submitted project must
-still be compilable with cmake and make./
