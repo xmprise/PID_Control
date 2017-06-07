@@ -1,5 +1,4 @@
 # PID Control
----
 
 ## Reflection
 
@@ -19,9 +18,9 @@ steer_pid.Init(.1, .0001, 3.);
 ```
 
 **Note**
-▻ Use KP to decrease the rise time.
-▻ Use KD to reduce the overshoot and settling time.
-▻ Use KI to eliminate the steady-state error.
+1. Use KP to decrease the rise time.
+2. Use KD to reduce the overshoot and settling time.
+3. Use KI to eliminate the steady-state error.
 
 Jinghua Zhong (Spring 2006). "PID Controller Tuning: A Short Tutorial" (PDF). Retrieved 2011-04-04.
 
