@@ -2,7 +2,7 @@
 ---
 
 ## Reflection
----
+
 ### PID Componets
 P or "Proportional" indicates the current cte (Cross Track Error). The car is controlled in proportion to the distance of the car from the center of the lane, and when P error is large, it vibrates greatly and reacts quickly to the input.
 
